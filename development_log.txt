@@ -1,0 +1,44 @@
+Checkbox Toggler
+================
+.. from morning pages for 2012-11-03:
+
+#.  Create the development log file. [Done 2012-11-03 10:26]
+#.  Create the git repository (which means I need a name for the project, but hopefully that’s not going to be too hard to come up with). “jscheckmate” [Done 2012-11-03 10:30]
+#.  Write a bookmarklet “hello world”, because I’ve more or less forgotten how to do that. [Done 2012-11-03 10:32]
+#.  Write the (hopefully trivial) “build scripts” for it, probably something that just puts the contents of the bookmarklet into the clipboard so that I can paste it into the browser’s location bar; I can’t think of a better way to allow easy iteration and testing. (This part is where I found out about Chrome eating the “javascript:” portion of something pasted in, which is kind of annoying; see <http://code.google.com/p/chromium/issues/detail?id=85232>) [Done 2012-11-03 10:42] 
+#.  Load jQuery from Google's CDN (<http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js>)
+
+    +   That means using the old “add a script tag to the head element” trick, I think.
+
+    [Done 2012-11-03 10:50]
+#.  Create remote repo.
+#.  Figure out how to bind and unbind events; I want to bind a function to the mouse down event, and then have that function bind another function to mouse up, and that last function needs to unbind itself and the mouse down one.
+
+    +   Alert on mousedown.
+    +   Alert on mouseup.
+
+    Possibly use some of the answers here: <http://stackoverflow.com/questions/11552174/jquery-binding-click-event-best-practices>.
+
+#.  Make a function that gets the coordinates at mouse down and the coordinates at mouse up. These should be page, not screen, coordinates. This might be useful: <http://stackoverflow.com/questions/1280660/given-an-x-y-coordinate-i-need-to-find-all-html-elements-underneath-it>.
+#.  Make a function that gets all the checkboxes on the page.
+#.  Make a function that goes through all the checkboxes on the page and gets their coordinates.
+#.  Make a function that checks all the checkboxes to see which of them are within the rectangle defined by the coordinate pair returned by the mouse down and mouse up functions.
+#.  Make a function that changes the states of all of the checkboxes from the previous function.
+#.  Do the cleanup/unbinding.
+#.  Make a function that makes the rectangle visible while it’s being drawn—harder than it sounds, because while that’s just making a translucent element and putting it on the page, it requires listening for all mouse movement, and that might be more of a pain than it seems.
+#.  After that, I want to figure out how to do this all without using jQuery, because it should be possible and shouldn’t really be all *that* difficult. I think.
+#.  Also figure out how to use some kind of compression, maybe, to make the bookmarklet smaller.
+#.  Probably put the bookmarklet in some kind of object, possibly the revealing module pattern, to make sure it doesn’t clash with other stuff.
+
+.. container:: date
+
+    10:26 Saturday 03/11/2012
+
+.. container:: metadata
+
+    :Wordcount: []
+    :Location: [Barista, 1725 NE Alberta Street, Portland, Oregon 97211]
+    :Tags: []
+    :Writingtime: [ mins]
+    :Originalformat: [reStructuredText]
+    :Version: [1]
