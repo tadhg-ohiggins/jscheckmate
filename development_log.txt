@@ -11,20 +11,22 @@ Checkbox Toggler
     +   That means using the old “add a script tag to the head element” trick, I think.
 
     [Done 2012-11-03 10:50]
-#.  Create remote repo.
+#.  Create remote repo. [Done 2012-11-06 16:06]
 #.  Figure out how to bind and unbind events; I want to bind a function to the mouse down event, and then have that function bind another function to mouse up, and that last function needs to unbind itself and the mouse down one.
 
-    +   Alert on mousedown.
-    +   Alert on mouseup.
+    +   Alert on mousedown. [Done 2012-11-06 16:10]
+    +   Alert on mouseup. [Done 2012-11-08 16:53]
 
     Possibly use some of the answers here: <http://stackoverflow.com/questions/11552174/jquery-binding-click-event-best-practices>.
 
-#.  Make a function that gets the coordinates at mouse down and the coordinates at mouse up. These should be page, not screen, coordinates. This might be useful: <http://stackoverflow.com/questions/1280660/given-an-x-y-coordinate-i-need-to-find-all-html-elements-underneath-it>.
-#.  Make a function that gets all the checkboxes on the page.
-#.  Make a function that goes through all the checkboxes on the page and gets their coordinates.
-#.  Make a function that checks all the checkboxes to see which of them are within the rectangle defined by the coordinate pair returned by the mouse down and mouse up functions.
-#.  Make a function that changes the states of all of the checkboxes from the previous function.
-#.  Do the cleanup/unbinding.
+    The functions also unbind themselves from the events when they are called.
+
+#.  Make a function that gets the coordinates at mouse down and the coordinates at mouse up. These should be page, not screen, coordinates. This might be useful: <http://stackoverflow.com/questions/1280660/given-an-x-y-coordinate-i-need-to-find-all-html-elements-underneath-it>. [Done 2012-11-08 16:54]
+#.  Make a function that gets all the checkboxes on the page. [Done 2012-11-08 17:47]
+#.  Make a function that goes through all the checkboxes on the page and gets their coordinates. [Done 2012-11-08 17:47]
+#.  Make a function that checks all the checkboxes to see which of them are within the rectangle defined by the coordinate pair returned by the mouse down and mouse up functions. [Done 2012-11-08 17:47]
+#.  Make a function that changes the states of all of the checkboxes from the previous function. [Done 2012-11-08 17:47]
+#.  Do the cleanup/unbinding. [Done 2012-11-08 17:47]
 #.  Make a function that makes the rectangle visible while it’s being drawn—harder than it sounds, because while that’s just making a translucent element and putting it on the page, it requires listening for all mouse movement, and that might be more of a pain than it seems.
 #.  After that, I want to figure out how to do this all without using jQuery, because it should be possible and shouldn’t really be all *that* difficult. I think.
 #.  Also figure out how to use some kind of compression, maybe, to make the bookmarklet smaller.
