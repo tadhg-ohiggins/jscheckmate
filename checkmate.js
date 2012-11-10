@@ -2,19 +2,15 @@
     var checkMate = {
         init: function() {
             document.addEventListener("mousedown", checkMate.downer, true);
-            console.log("yo");
         },
         downer: function(e) {
-            console.log("downer");
-            console.log(e);
             checkMate.start_x = e.pageX;
             checkMate.start_y = e.pageY;
+            e.preventDefault();
             document.addEventListener("mouseup", checkMate.upper, true);
             document.removeEventListener("mousedown", checkMate.downer, true);
         },
         upper: function(e) {
-            console.log("upper");
-            console.log(e);
             checkMate.end_x = e.pageX;
             checkMate.end_y = e.pageY;
             checkMate.rectangle = {};
