@@ -27,10 +27,8 @@ Checkbox Toggler
 #.  Make a function that checks all the checkboxes to see which of them are within the rectangle defined by the coordinate pair returned by the mouse down and mouse up functions. [Done 2012-11-08 17:47]
 #.  Make a function that changes the states of all of the checkboxes from the previous function. [Done 2012-11-08 17:47]
 #.  Do the cleanup/unbinding. [Done 2012-11-08 17:47]
-#.  Make a function that makes the rectangle visible while it’s being drawn—harder than it sounds, because while that’s just making a translucent element and putting it on the page, it requires listening for all mouse movement, and that might be more of a pain than it seems.
-#.  After that, I want to figure out how to do this all without using jQuery, because it should be possible and shouldn’t really be all *that* difficult. I think.
-#.  Also figure out how to use some kind of compression, maybe, to make the bookmarklet smaller.
-#.  Probably put the bookmarklet in some kind of object, possibly the revealing module pattern, to make sure it doesn’t clash with other stuff.
+#.  Make a function that makes the rectangle visible while it’s being drawn—harder than it sounds, because while that’s just making a translucent element and putting it on the page, it requires listening for all mouse movement, and that might be more of a pain than it seems. [Done 2012-12-02 22:00]
+#.  Move repo to github. [Done 2012-12-02 22:40]
 
 .. container:: date
 
