@@ -1,9 +1,9 @@
 (function () {
     var checkMate = {
-        init: function() {
+        init: function () {
             document.addEventListener("mousedown", checkMate.downer, true);
             var displayBox = document.createElement("div");
-            displayBox.id="checkMateDisplayBox";
+            displayBox.id = "checkMateDisplayBox";
             var dbStyle = displayBox.style;
             dbStyle.position = "absolute";
             dbStyle.display = "none";
@@ -14,7 +14,7 @@
             document.body.appendChild(displayBox);
             checkMate.dbStyle = dbStyle;
         },
-        downer: function(e) {
+        downer: function (e) {
             e.preventDefault();
             checkMate.startX = e.pageX;
             checkMate.startY = e.pageY;
@@ -26,31 +26,31 @@
             document.removeEventListener("mousedown", checkMate.downer, true);
 
         },
-        moved: function(e) {
-            var currentX = e.pageX;
-            var currentY = e.pageY;
-            var dbStyle = checkMate.dbStyle;
-            var startX = checkMate.startX;
-            var startY = checkMate.startY;
+        moved: function (e) {
+            var currentX = e.pageX,
+                currentY = e.pageY,
+                dbStyle = checkMate.dbStyle,
+                startX = checkMate.startX,
+                startY = checkMate.startY;
             if (currentX > startX) {
                 dbStyle.width = (currentX - startX) + "px";
             } else {
                 dbStyle.left = currentX + "px";
                 dbStyle.width = (startX - currentX) + "px";
-            };
+            }
             if (currentY > checkMate.startY) {
                 dbStyle.height = (currentY - startY) + "px";
             } else {
                 dbStyle.top = currentY + "px";
                 dbStyle.height = (startY - currentY) + "px";
-            };
+            }
         },
-        upper: function(e) {
-            var endX = e.pageX;
-            var endY = e.pageY;
-            var startX = checkMate.startX;
-            var startY = checkMate.startY;
-            var rectangle = {};
+        upper: function (e) {
+            var endX = e.pageX,
+                endY = e.pageY,
+                startX = checkMate.startX,
+                startY = checkMate.startY,
+                rectangle = {};
             function setLR(obj, left, right) {
                 obj.left = left;
                 obj.right = right;
@@ -63,24 +63,22 @@
                 setLR(rectangle, startX, endX);
             } else {
                 setLR(rectangle, endX, startX);
-            };
+            }
             if (endY > checkMate.startY) {
                 setTB(rectangle, startY, endY);
             } else {
                 setTB(rectangle, endY, startY);
-            };
+            }
             document.removeEventListener("mouseup", checkMate.upper, true);
             document.removeEventListener("mousemove", checkMate.moved, true);
             checkMate.dbStyle.display = "none";
             checkMate.calculate(rectangle);
         },
-        calculate: function(rectangle) {
+        calculate: function (rectangle) {
             var checkboxes = checkMate.getCheckboxes(rectangle);
             function toggle(checkbox) {
-                console.log(checkbox);
                 var newVal = !checkbox.getAttribute("checked");
                 newVal = !checkbox.checked;
-                console.log(newVal);
                 checkbox.checked = newVal;
                 checkbox.setAttribute("checked", newVal);
             }
@@ -88,12 +86,12 @@
                 toggle(checkboxes[i].elem);
             }
         },
-        getCheckboxes: function(rectangle) {
+        getCheckboxes: function (rectangle) {
             var inputs = document.getElementsByTagName("input");
             var checkboxes = [];
             for (var i=0; i<inputs.length; i++) {
-                this_input = inputs[i];
-                if (this_input.type == "checkbox") {
+                var this_input = inputs[i];
+                if (this_input.type === "checkbox") {
                     var coords = checkMate.offset(this_input);
                     if (coords.left > rectangle.left && coords.left < rectangle.right) {
                         if (coords.top > rectangle.top && coords.top < rectangle.bottom) {
@@ -104,7 +102,7 @@
             }
             return checkboxes;
         },
-        offset: function(elem){
+        offset: function (elem){
             var obj = elem.getBoundingClientRect();
             return {
                 left: obj.left + document.body.scrollLeft,
@@ -115,7 +113,7 @@
         }
     };
     checkMate.init();
-)();
+})();
 /*
  *  
  *  jsCheckMate, a simple bookmarklet for toggling checkbox element state.
